@@ -1,0 +1,15 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@Components/*": [ "components/*" ],
+      "@Hooks/*": [ "hooks/*" ],
+      "@Pages/*": [ "pages/*" ],
+      "@Auth": [ "modules/Auth/index.ts" ],
+      "@Bill": [ "modules/Bill/index.ts" ],
+      "@Locale": [ "modules/Locale/index.ts" ],
+      "@User": [ "modules/User/index.ts" ],
+    },
+  },
+}
