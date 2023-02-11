@@ -22,4 +22,4 @@ const LoginPageView: React.FC = () => {
   )
 }
 
-export { LoginPageView }
+export default LoginPageView

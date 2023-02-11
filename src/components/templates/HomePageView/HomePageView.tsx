@@ -1,22 +1,27 @@
 import React, { useContext } from "react"
-import { Button, Text, View } from "react-native"
+import { View } from "react-native"
 
-import { AuthContext } from "@Auth"
 import { LocaleContext } from "@Locale"
+import { BillContext } from "@Bill"
+
+import { Text } from "@Components/atoms"
+import { BillsListing } from "@Components/organisms"
 
 const HomePageView: React.FC = () => {
   const { strings: {
-    login,
+    entries,
+    home__listing_title,
   } } = useContext(LocaleContext)
 
-  const { endSession } = useContext(AuthContext)
+  const { billsListing } = useContext(BillContext)
 
   return (
     <View>
-      <Text>Home</Text>
-      <Button title={login} onPress={() => endSession()} />
+      <Text>{home__listing_title}</Text>
+      <Text>{`27 ${entries}`}</Text>
+      <BillsListing bills={billsListing} />
     </View>
   )
 }
 
-export { HomePageView }
+export default HomePageView

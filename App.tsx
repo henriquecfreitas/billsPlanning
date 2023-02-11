@@ -1,24 +1,30 @@
-import React, { PropsWithChildren, useContext } from "react"
+import React, { PropsWithChildren, useContext, useMemo } from "react"
 import { StatusBar } from "expo-status-bar"
 import { StyleSheet, View } from "react-native"
 
 import { AuthContext, AuthContextProvider } from "@Auth"
+import { BillContextProvider } from "@Bill"
 import { LocaleContextProvider } from "@Locale"
+import { ThemeContext, ThemeContextProvider } from "@Theme"
 
 import MainPage from "@Pages/MainPage"
 import LoginPage from "@Pages/LoginPage"
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-})
 
 function App() {
   const { hasSession } = useContext(AuthContext)
+  const { colors } = useContext(ThemeContext)
+  
+  const styles = useMemo(() => StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.app__background,
+      alignItems: "center",
+      justifyContent: "center",
+      fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI",
+                  Roboto, Helvetica, Arial, sans-serif`,
+    },
+  }), [colors])
 
   return (
     <View style={styles.container}>
@@ -35,6 +41,8 @@ const appWithContextProviders = (...providers: React.FC<PropsWithChildren>[]) =>
 )
 
 export default () => appWithContextProviders(
-  LocaleContextProvider,
   AuthContextProvider,
+  BillContextProvider,
+  LocaleContextProvider,
+  ThemeContextProvider,
 )

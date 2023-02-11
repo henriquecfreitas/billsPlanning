@@ -1,30 +1,36 @@
 import React, { useContext } from "react"
-import { Button, View } from "react-native"
+import { TouchableOpacity, View } from "react-native"
 
 import { LocaleContext, SupportedLocale } from "@Locale"
 
+import { Text } from "@Components/atoms"
+
+import Styles from "./LanguageSelector.styles"
+
 const LanguageSelector: React.FC = () => {
   const languages = {
-    "pt-BR": "Português",
-    "en": "English",
-    "es": "Español",
+    "pt-BR": "🇧🇷",
+    "en": "🇬🇧",
+    "es": "🇪🇸",
   } as { [K in SupportedLocale]: string }
 
-  const { setLanguage } = useContext(LocaleContext)
+  const { current, setLanguage } = useContext(LocaleContext)
 
   return (
-    <View>
+    <View style={Styles.contianer}>
       {Object.entries(languages).map((
         [key, child]: [SupportedLocale, string]
-      ) => (
-        <Button
+      ) => key != current && (
+        <TouchableOpacity
           key={key}
-          title={child}
+          style={Styles.button}
           onPress={() => setLanguage(key)}
-        />
+        >
+          <Text style={Styles.flag}>{child}</Text>
+        </TouchableOpacity>
       ))}
     </View>
   )
 }
 
-export { LanguageSelector }
+export default LanguageSelector

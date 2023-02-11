@@ -1,2 +1,4 @@
-export { default as HomePageView } from "./HomePageView"
-export { default as LoginPageView } from "./LoginPageView"
+export { HomePageView } from "./HomePageView"
+export { LanguageSelector } from "./LanguageSelector"
+export { LoginPageView } from "./LoginPageView"
+export { SessionBar } from "./SessionBar"

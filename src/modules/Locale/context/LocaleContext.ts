@@ -4,7 +4,8 @@ import { SupportedLocale } from "../strings"
 import StringMap, { originStringMap } from "../stringMap"
 
 export type LocaleContextData = {
-  strings: StringMap
+  current: SupportedLocale,
+  strings: StringMap,
 }
 
 type LocaleContextDispatch = {
@@ -14,6 +15,7 @@ type LocaleContextDispatch = {
 type LocaleContextValue = LocaleContextData & LocaleContextDispatch
 
 const LocaleContext = React.createContext<LocaleContextValue>({
+  current: null as SupportedLocale,
   strings: originStringMap,
   setLanguage: (_: SupportedLocale) => {},
 })
