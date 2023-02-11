@@ -36,7 +36,7 @@ const TextInput: React.FC<Props> = ({
       {children}
       <NativeInput
         style={styles.input}
-        placeholderTextColor={colors.text_alternative}
+        placeholderTextColor={colors.text_light}
         {...props}
       />
     </View>

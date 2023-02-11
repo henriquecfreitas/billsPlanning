@@ -11,7 +11,7 @@ const SearchField: React.FC<Props> = ({ placeholder }) => {
 
   return (
     <TextInput placeholder={placeholder}>
-      <Icon name="search1" size={16} color={colors.text}/>
+      <Icon name="search1" size={16} color={colors.text_light}/>
     </TextInput>
   )
 }
