@@ -63,7 +63,7 @@ const BillListItem: React.FC<Props> = ({
         />
       </TouchableOpacity>
     </TouchableOpacity>
-    {children.map(bill => (
+    {children && children.map(bill => (
       <BillListItem key={bill.id} bill={bill} onSelect={onSelect}/>
     ))}
   </>
