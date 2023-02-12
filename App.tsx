@@ -7,6 +7,11 @@ import { BillContextProvider } from "@Bill"
 import { LocaleContextProvider } from "@Locale"
 import { ThemeContext, ThemeContextProvider } from "@Theme"
 
+import {
+  ModalView,
+  ModalViewContextProvider,
+} from "@Components/organisms/ModalView"
+
 import MainPage from "@Pages/MainPage"
 import LoginPage from "@Pages/LoginPage"
 
@@ -30,6 +35,7 @@ function App() {
     <View style={styles.container}>
       {React.createElement(hasSession ? MainPage : LoginPage)}
       <StatusBar style="auto" />
+      <ModalView />
     </View>
   )
 }
@@ -44,4 +50,5 @@ export default () => appWithContextProviders(
   BillContextProvider,
   LocaleContextProvider,
   ThemeContextProvider,
+  ModalViewContextProvider,
 )

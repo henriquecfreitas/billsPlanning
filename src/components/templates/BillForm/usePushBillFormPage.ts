@@ -1,6 +1,6 @@
 import { createElement, useCallback, useContext } from "react"
 
-import { Bill } from "@Bill"
+import { Bill, BillContext } from "@Bill"
 import { LocaleContext } from "@Locale"
 import { ThemeContext } from "@Theme"
 
@@ -9,12 +9,8 @@ import { NavigationContext } from "@Components/organisms/NavigationController"
 
 import BillForm from "./BillForm"
 
-type Params = {
-  billsListing: Bill[],
-}
-function usePushBillFormPage({
-  billsListing,
-}: Params) {
+function usePushBillFormPage() {
+  const { billsListing } = useContext(BillContext)
   const { strings } = useContext(LocaleContext)
   const { colors } = useContext(ThemeContext)
   const { pushPage } = useContext(NavigationContext)

@@ -4,19 +4,19 @@ import { BillContext } from "@Bill"
 import { ThemeContext } from "@Theme"
 
 import { BillsFilterInput } from "@Components/organisms"
+import { NavigationPage } from "@Components/organisms/NavigationController"
 import { HomePageView } from "@Components/templates"
 import { CreateBillAction } from "@Components/templates/BillForm"
 
 const useMainPage = () => {
-  const { billsListing } = useContext(BillContext)
   const { colors } = useContext(ThemeContext)
 
   const homePage = useMemo(() => ({
     titleKey: "home__title",
-    pageView: React.createElement(HomePageView, { billsListing }),
-    headerAction: React.createElement(CreateBillAction, { billsListing }),
+    pageView: React.createElement(HomePageView),
+    headerAction: React.createElement(CreateBillAction),
     headerContent: React.createElement(BillsFilterInput),
-  }), [billsListing, colors])
+  } as NavigationPage ), [colors])
 
   return { homePage }
 }

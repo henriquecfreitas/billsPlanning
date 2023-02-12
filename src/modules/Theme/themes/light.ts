@@ -4,6 +4,7 @@ const lightTheme: ColorMap = {
   "primary": "#622491",
   "success": "#64B23A",
   "warning": "#DA7",
+  "danger": "#E66",
   "text_dark": "#111",
   "text": "#555",
   "text_accent": "#622491",

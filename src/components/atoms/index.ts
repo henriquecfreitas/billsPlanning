@@ -1,3 +1,4 @@
+export { Button } from "./Button"
 export { Icon } from "./Icon"
 export { SelectInput } from "./SelectInput"
 export { Text } from "./Text"

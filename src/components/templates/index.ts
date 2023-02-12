@@ -1,4 +1,5 @@
 export { BillForm } from "./BillForm"
+export { DeleteBillView } from "./DeleteBillView"
 export { HomePageView } from "./HomePageView"
 export { LanguageSelector } from "./LanguageSelector"
 export { LoginPageView } from "./LoginPageView"

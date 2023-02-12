@@ -5,6 +5,8 @@ import { Bill, BillKind } from "@Bill"
 import { ThemeContext } from "@Theme"
 
 import { Icon, Text } from "@Components/atoms"
+import { ModalViewContext } from "@Components/organisms/ModalView"
+import { DeleteBillView } from "@Components/templates"
 
 import CreateStyles from "./BillListItem.styles"
 
@@ -24,6 +26,7 @@ const BillListItem: React.FC<Props> = ({
   } = bill
 
   const { colors } = useContext(ThemeContext)
+  const { openView } = useContext(ModalViewContext)
   
   const styles = useMemo(() => CreateStyles(colors), [colors])
 
@@ -50,8 +53,15 @@ const BillListItem: React.FC<Props> = ({
       }}
     >
       <Icon name={iconName} size={16} color={iconColor} />
-      <Text style={kindStyle}>{`${code} - ${name}`}</Text>
-      <Icon name="delete" size={16} style={styles.deleteIcon} color={colors.text_light} />
+      <Text style={[kindStyle, styles.descriptionLabel]}>{`${code} - ${name}`}</Text>
+      <TouchableOpacity onPress={() => openView(<DeleteBillView bill={bill} />)}>
+        <Icon
+          name="delete"
+          size={16}
+          style={styles.deleteIcon}
+          color={colors.text_light}
+        />
+      </TouchableOpacity>
     </TouchableOpacity>
     {children.map(bill => (
       <BillListItem key={bill.id} bill={bill} onSelect={onSelect}/>

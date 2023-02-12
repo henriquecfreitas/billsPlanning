@@ -6,6 +6,7 @@ export const originColorMap = {
   "primary": null,
   "success": null,
   "warning": null,
+  "danger": null,
   "text_dark": null,
   "text": null,
   "text_accent": null,

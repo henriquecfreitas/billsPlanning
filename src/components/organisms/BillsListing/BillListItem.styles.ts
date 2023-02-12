@@ -11,16 +11,19 @@ export default (themeColors: ColorMap) => {
       display: "flex",
       flexDirection: "row",
       flexWrap: "wrap",
+      alignItems: "center",
       gap: 8,
-      paddingVertical: 16,
+      paddingVertical: 8,
       paddingHorizontal: 12,
       backgroundColor: themeColors.white,
       borderRadius: 16,
       borderColor: themeColors.white,
     },
-    deleteIcon: {
+    descriptionLabel: {
       flex: 1,
-      textAlign: "right",
+    },
+    deleteIcon: {
+      padding: 8,
     },
     income: {
       fontWeight: "500",

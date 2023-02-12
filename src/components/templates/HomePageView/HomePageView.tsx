@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from "react"
 import { View } from "react-native"
 
-import { Bill } from "@Bill"
+import { BillContext } from "@Bill"
 import { ThemeContext } from "@Theme"
 import { LocaleContext } from "@Locale"
 
@@ -11,19 +11,15 @@ import { usePushBillFormPage } from "@Components/templates/BillForm"
 
 import CreateStyles from "./HomePageView.styles"
 
-type Props = {
-  billsListing: Bill[],
-}
-const HomePageView: React.FC<Props> = ({
-  billsListing,
-}) => {
+const HomePageView: React.FC = () => {
+  const { billsListing } = useContext(BillContext)
   const { strings: {
     entries,
     home__listing_title,
   } } = useContext(LocaleContext)
   const { colors } = useContext(ThemeContext)
 
-  const { pushBillFormPage } = usePushBillFormPage({ billsListing })
+  const { pushBillFormPage } = usePushBillFormPage()
 
   const styles = useMemo(() => CreateStyles(colors), [colors])
 
