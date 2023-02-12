@@ -24,7 +24,7 @@ const useBillForm: UseBillForm = ({ selectedBill, bills }) => {
         value: bill.id,
         origin: bill,
       }))
-  ), [selectedBill.id, bills])
+  ), [selectedBill, bills])
 
   const { billKindOptions, activeStatusOptions } = useMemo(() => ({
     billKindOptions: [
@@ -58,7 +58,7 @@ const useBillForm: UseBillForm = ({ selectedBill, bills }) => {
     code,
     kind,
     active,
-  } = selectedBill
+  } = selectedBill || {}
 
   return {
     name,

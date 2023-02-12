@@ -1,10 +1,13 @@
-import { useContext } from "react"
+import { useContext, useMemo } from "react"
+
+import { LocaleContext } from "@Locale"
+
 import { NavigationContext } from "./context/NavigationContext"
 
 const useNavigationController = () => {
   const {
     currentPage: {
-      title,
+      titleKey,
       pageView,
       headerAction,
       headerContent,
@@ -12,6 +15,9 @@ const useNavigationController = () => {
     currentPageLevel,
     popPage,
   } = useContext(NavigationContext)
+
+  const { strings } = useContext(LocaleContext)
+  const title = useMemo(() => strings[titleKey], [titleKey, strings])
 
   return {
     title,

@@ -1,7 +1,8 @@
 import { ReactNode } from "react"
+import { StringMap } from "@Locale"
 
 type NavigationPage = {
-  title: string,
+  titleKey: keyof StringMap,
   pageView: ReactNode,
   headerAction?: ReactNode,
   headerContent?: ReactNode,

@@ -24,6 +24,7 @@ type Props<I, V> =
 const Select: <I, V>(props: Props<I, V>) => React.ReactElement = ({
   title,
   items,
+  ...props
 }) => {
   const { colors } = useContext(ThemeContext)
   const styles = useMemo(() => CreateStyles(colors), [colors])
@@ -38,8 +39,8 @@ const Select: <I, V>(props: Props<I, V>) => React.ReactElement = ({
           inputIOS: styles.input,
         }}
         placeholder={{}}
-        onValueChange={() => {}}
         items={items}
+        {...props}
       />
     </View>
   )
