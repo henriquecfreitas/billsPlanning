@@ -3,12 +3,23 @@ import StringMap from "../stringMap";
 const es: StringMap = {
   "email": "Email",
   "password": "Contraseña",
-  "login": "Login",
-  "logout": "Encerrar Sessão",
+  "login": "Acceso",
+  "logout": "Cerrar Sesión",
   "entries": "registros",
-  "home__title": "Plano de Contas",
-  "home__search_placeholder": "Pesquisar conta",
-  "home__listing_title": "Listagem",
+  "income": "Ingreso",
+  "expense": "Gasto",
+  "yes": "Sí",
+  "no": "No",
+  "home__title": "Planificación Presupuestaria",
+  "home__search_placeholder": "Buscar cuenta",
+  "home__listing_title": "Listado",
+  "bill_detail__title": "Editar Cuenta",
+  "bill_form__parent": "Cuenta principal",
+  "bill_form__code": "Código",
+  "bill_form__name": "Nombre",
+  "bill_form__kind": "Tipo",
+  "bill_form__active": "Acepta entradas",
+  "bill_form__contingency_fund": "Fondo de reserva",
 }
 
 export default es

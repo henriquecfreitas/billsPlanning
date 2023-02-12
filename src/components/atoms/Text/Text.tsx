@@ -1,7 +1,5 @@
 import React, { PropsWithChildren, useMemo } from "react"
-import { Text as NativeText, StyleProp, StyleSheet, TextStyle } from "react-native"
-
-import Styles from "./Text.styles"
+import { Text as NativeText, StyleProp, TextStyle } from "react-native"
 
 type Props = PropsWithChildren & {
   style?: StyleProp<TextStyle>,

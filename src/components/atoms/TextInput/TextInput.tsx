@@ -5,7 +5,8 @@ import {
   ViewProps,
   StyleProp,
   ViewStyle,
-  TextInputProps
+  TextInputProps,
+  TextStyle
 } from "react-native"
 
 import CreateStyles from "./TextInput.styles"
@@ -13,10 +14,12 @@ import { ThemeContext } from "@Theme"
 
 type Props = TextInputProps & {
   style?: StyleProp<ViewStyle>,
+  inputStyle?: StyleProp<TextStyle>,
   viewProps?: ViewProps,
 }
 const TextInput: React.FC<Props> = ({
   style,
+  inputStyle,
   viewProps,
   children,
   ...props
@@ -26,7 +29,7 @@ const TextInput: React.FC<Props> = ({
   const styles = useMemo(() => {
     const { inputContainer, input } = CreateStyles(colors)
     return {
-      input,
+      input: [input, inputStyle],
       inputContainer: [inputContainer, style],
     }
   }, [colors, style])

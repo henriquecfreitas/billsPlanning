@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from "react"
 import { View } from "react-native"
 
-import { BillContext } from "@Bill"
+import { Bill } from "@Bill"
 import { ThemeContext } from "@Theme"
 import { LocaleContext } from "@Locale"
 
@@ -10,8 +10,10 @@ import { BillsListing } from "@Components/organisms"
 
 import CreateStyles from "./HomePageView.styles"
 
-const HomePageView: React.FC = () => {
-  const { billsListing } = useContext(BillContext)
+type Props = {
+  bills: Bill[]
+}
+const HomePageView: React.FC<Props> = ({ bills }) => {
   const { strings: {
     entries,
     home__listing_title,
@@ -26,7 +28,7 @@ const HomePageView: React.FC = () => {
         <Text style={styles.listTitle}>{home__listing_title}</Text>
         <Text style={styles.listInfo}>{`27 ${entries}`}</Text>
       </View>
-      <BillsListing bills={billsListing} />
+      <BillsListing bills={bills} />
     </View>
   )
 }

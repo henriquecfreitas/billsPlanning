@@ -16,6 +16,8 @@ export default (themeColors: ColorMap) => StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
+    alignItems: "center",
+    gap: 12,
   },
   headerTitle: {
     flex: 1,

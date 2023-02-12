@@ -1,10 +1,10 @@
-export type Bill = {
-  id: string,
-  code: string,
-  name: string,
-  kind: BillKind,
-  active: boolean,
-  children?: Bill[],
+export class Bill {
+  id: string
+  code: string
+  name: string
+  kind: BillKind
+  active: boolean
+  children?: Bill[]
 }
 
 export enum BillKind {
