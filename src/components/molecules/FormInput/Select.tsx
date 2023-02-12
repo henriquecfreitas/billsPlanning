@@ -1,22 +1,26 @@
 import React, { useContext, useMemo } from "react"
 import { View } from "react-native"
+import { Item, PickerSelectProps } from "react-native-picker-select"
 
 import { ThemeContext } from "@Theme"
 
 import { SelectInput, Text } from "@Components/atoms"
 
 import CreateStyles from "./FormInput.styles"
-import { FormInputProps } from "./FormInput.props"
-import { Item } from "react-native-picker-select"
+import { FormFieldProps } from "./FormField.props"
 
 type SelectItem<I, V> = Item & {
   origin: I,
   value: V,
 }
 
-type Props<I, V> = Omit<FormInputProps, "placeholder"> & {
-  items: SelectItem<I, V>[],
-}
+type Props<I, V> =
+  PickerSelectProps &
+  Omit<FormFieldProps, "placeholder"> &
+  {
+    items: SelectItem<I, V>[],
+  }
+
 const Select: <I, V>(props: Props<I, V>) => React.ReactElement = ({
   title,
   items,

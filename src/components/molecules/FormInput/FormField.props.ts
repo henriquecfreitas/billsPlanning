@@ -1,4 +1,4 @@
-export type FormInputProps = {
+export type FormFieldProps = {
   title: string,
   placeholder: string,
 }

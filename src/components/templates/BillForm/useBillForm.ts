@@ -1,31 +1,30 @@
 import { useContext, useMemo } from "react"
 
-import { Bill, BillKind } from "@Bill"
+import { Bill, BillKind, flatBills } from "@Bill"
 import { LocaleContext, StringMap } from "@Locale"
 
 type UseBillForm = (params: {
-    bills: Bill[]
+    selectedBill?: Bill,
+    bills: Bill[],
 }) => {
   strings: StringMap,
   parentBillOptions: any[],
   billKindOptions: any[],
   activeStatusOptions: any[],
-}
-const useBillForm: UseBillForm = ({ bills }) => {
+} & Pick<Bill, 'name' | 'code' | 'kind' | 'active'>
+
+const useBillForm: UseBillForm = ({ selectedBill, bills }) => {
   const { strings } = useContext(LocaleContext)
 
-  const parentBillOptions = useMemo(() => [
-    {
-      label: "",
-      value: undefined,
-      origin: undefined,
-    },
-    ...bills.map(bill => ({
-      label: `${bill.code} - ${bill.name}`,
-      value: bill.id,
-      origin: bill,
-    }))
-  ], [bills])
+  const parentBillOptions = useMemo(() => (
+    bills
+      .flatMap(flatBills(selectedBill))
+      .map(bill => ({
+        label: `${bill.code} - ${bill.name}`,
+        value: bill.id,
+        origin: bill,
+      }))
+  ), [selectedBill.id, bills])
 
   const { billKindOptions, activeStatusOptions } = useMemo(() => ({
     billKindOptions: [
@@ -54,7 +53,18 @@ const useBillForm: UseBillForm = ({ bills }) => {
     ]
   }), [strings])
 
+  const {
+    name,
+    code,
+    kind,
+    active,
+  } = selectedBill
+
   return {
+    name,
+    code,
+    kind,
+    active,
     strings,
     parentBillOptions,
     billKindOptions,

@@ -1,16 +1,18 @@
 import React, { useContext, useMemo } from "react"
-import { View } from "react-native"
+import { TextInputProps, View } from "react-native"
 
 import { ThemeContext } from "@Theme"
 
 import { Text, TextInput } from "@Components/atoms"
 
 import CreateStyles from "./FormInput.styles"
-import { FormInputProps } from "./FormInput.props"
+import { FormFieldProps } from "./FormField.props"
 
+export type FormInputProps = FormFieldProps & TextInputProps
 const Input: React.FC<FormInputProps> = ({
   title,
   placeholder,
+  ...props
 }) => {
   const { colors } = useContext(ThemeContext)
   const styles = useMemo(() => CreateStyles(colors), [colors])
@@ -22,6 +24,7 @@ const Input: React.FC<FormInputProps> = ({
         style={styles.inputContainer}
         inputStyle={styles.input}
         placeholder={placeholder}
+        {...props}
       />
     </View>
   )

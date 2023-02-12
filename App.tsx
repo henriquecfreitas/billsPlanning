@@ -34,7 +34,6 @@ function App() {
   )
 }
 
-
 const appWithContextProviders = (...providers: React.FC<PropsWithChildren>[]) =>
   providers.reduce((acc, Provider) => <Provider>{acc}</Provider>,
   <App />

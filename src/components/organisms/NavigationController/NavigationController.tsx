@@ -1,34 +1,40 @@
-import React, { useContext, useMemo } from "react"
-import { View } from "react-native"
+import React, { PropsWithChildren, useContext, useMemo } from "react"
+import { TouchableOpacity, View } from "react-native"
 
 import { ThemeContext } from "@Theme"
-import { last } from "@Utils/array"
 
 import { Icon, Text } from "@Components/atoms"
 
+import { NavigationContextProvider } from "./context/NavigationContextProvider"
+
 import NavigationPage from "./NavigationPage"
 import CreateStyles from "./NavigationController.styles"
+import useNavigationController from "./useNavigationController"
 
 type Props = {
-  pageStack: NavigationPage[],
+  rootPage: NavigationPage,
 }
-const NavigationController: React.FC<Props> = ({ pageStack }) => {
+const NavigationController: React.FC<PropsWithChildren> = () => {
+  const { colors } = useContext(ThemeContext)
+  const styles = useMemo(() => CreateStyles(colors), [colors])
+
   const {
     title,
     pageView,
     headerAction,
     headerContent,
-  } = last(pageStack) || {}
-  
-  const { colors } = useContext(ThemeContext)
-  const styles = useMemo(() => CreateStyles(colors), [colors])
+    currentPageLevel,
+    popPage,
+  } = useNavigationController()
 
-  return pageView && (
+  return (
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerTitleContainer}>
-          {pageStack.length > 1 && (
-            <Icon name="left" size={28} color={colors.bg_text_accent} />
+          {currentPageLevel > 0 && (
+            <TouchableOpacity onPress={popPage}>
+              <Icon name="left" size={28} color={colors.bg_text_accent} />
+            </TouchableOpacity>
           )}
           <Text style={styles.headerTitle}>{title}</Text>
           {headerAction}
@@ -44,4 +50,11 @@ const NavigationController: React.FC<Props> = ({ pageStack }) => {
   )
 }
 
-export default NavigationController
+export default (props: Props) => {
+  const { rootPage, ..._props } = props
+  return (
+    <NavigationContextProvider rootPage={rootPage}>
+      { React.createElement(NavigationController, _props) }
+    </NavigationContextProvider>
+  )
+}

@@ -7,18 +7,24 @@ import { LocaleContext } from "@Locale"
 
 import { Text } from "@Components/atoms"
 import { BillsListing } from "@Components/organisms"
+import { NavigationContext, NavigationPage } from "@Components/organisms/NavigationController"
 
 import CreateStyles from "./HomePageView.styles"
 
 type Props = {
-  bills: Bill[]
+  bills: Bill[],
+  pushBillForm: (bill: Bill) => NavigationPage,
 }
-const HomePageView: React.FC<Props> = ({ bills }) => {
+const HomePageView: React.FC<Props> = ({
+  bills,
+  pushBillForm,
+}) => {
   const { strings: {
     entries,
     home__listing_title,
   } } = useContext(LocaleContext)
   const { colors } = useContext(ThemeContext)
+  const { pushPage } = useContext(NavigationContext)
 
   const styles = useMemo(() => CreateStyles(colors), [colors])
 
@@ -28,7 +34,13 @@ const HomePageView: React.FC<Props> = ({ bills }) => {
         <Text style={styles.listTitle}>{home__listing_title}</Text>
         <Text style={styles.listInfo}>{`27 ${entries}`}</Text>
       </View>
-      <BillsListing bills={bills} />
+      <BillsListing
+        bills={bills}
+        onSelectBill={bill => {
+          const billFormView = pushBillForm(bill)
+          pushPage(billFormView)
+        }}
+      />
     </View>
   )
 }

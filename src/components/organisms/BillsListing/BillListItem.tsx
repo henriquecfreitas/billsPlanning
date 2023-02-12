@@ -10,8 +10,12 @@ import CreateStyles from "./BillListItem.styles"
 
 type Props = {
   bill: Bill,
+  onSelect?: (bill: Bill) => void,
 }
-const BillListItem: React.FC<Props> = ({ bill }) => {
+const BillListItem: React.FC<Props> = ({
+  bill,
+  onSelect,
+}) => {
   const {
     name,
     code,
@@ -39,13 +43,18 @@ const BillListItem: React.FC<Props> = ({ bill }) => {
   }), [kind, colors, styles])
 
   return <>
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        onSelect && onSelect(bill)
+      }}
+    >
       <Icon name={iconName} size={16} color={iconColor} />
       <Text style={kindStyle}>{`${code} - ${name}`}</Text>
       <Icon name="delete" size={16} style={styles.deleteIcon} color={colors.text_light} />
     </TouchableOpacity>
     {children.map(bill => (
-      <BillListItem key={bill.id} bill={bill}/>
+      <BillListItem key={bill.id} bill={bill} onSelect={onSelect}/>
     ))}
   </>
 }
