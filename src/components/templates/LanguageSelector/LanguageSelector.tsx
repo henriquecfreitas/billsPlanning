@@ -3,7 +3,7 @@ import { TouchableOpacity, View } from "react-native"
 
 import { LocaleContext, SupportedLocale } from "@Locale"
 
-import { Text } from "@Components/atoms"
+import { Gap, Text } from "@Components/atoms"
 
 import Styles from "./LanguageSelector.styles"
 
@@ -19,16 +19,17 @@ const LanguageSelector: React.FC = () => {
   return (
     <View style={Styles.contianer}>
       {Object.entries(languages).map((
-        [key, child]: [SupportedLocale, string]
-      ) => key != current && (
+        [key, child]: [SupportedLocale, string],
+        idx,
+      ) => key != current && <React.Fragment key={key}>
+        {(idx > 0) && <Gap.Horizontal value={4} />}
         <TouchableOpacity
-          key={key}
           style={Styles.button}
           onPress={() => setLanguage(key)}
         >
           <Text style={Styles.flag}>{child}</Text>
         </TouchableOpacity>
-      ))}
+      </React.Fragment>)}
     </View>
   )
 }

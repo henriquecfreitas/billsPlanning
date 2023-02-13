@@ -3,7 +3,7 @@ import { useContext, useEffect, useMemo, useState } from "react"
 import { Bill, BillFormData, BillKind, flatBills, findBill, BillContext } from "@Bill"
 import { LocaleContext, StringMap } from "@Locale"
 
-import { SelectItem } from "@Components/molecules/FormInput"
+import { SelectItem } from "@Components/organisms/FormInput"
 
 type UseBillForm = (params: {
     selectedBill?: Bill,
@@ -92,6 +92,16 @@ const useBillForm: UseBillForm = ({ selectedBill, bills }) => {
     setFormData({ parent, name, code, kind, active })
   }, [selectedBill, validParentBills])
 
+  // useEffect(() => {
+  //   const { children } = formData.parent
+  //   if (children?.length) {
+  //     const greatestCode = children.reduce((acc, current) => {
+  //       return greatestCode.
+  //     }, formData.parent.code)
+      
+  //   }
+  // }, [formData.parent])
+  //
   return {
     ...formData,
     setParent,

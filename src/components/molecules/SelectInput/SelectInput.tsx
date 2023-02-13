@@ -13,7 +13,7 @@ import Picker, {
 
 import { ThemeContext } from "@Theme"
 
-import { Icon } from "@Components/atoms"
+import { Gap, Icon } from "@Components/atoms"
 
 import CreateStyles from "./SelectInput.styles"
 
@@ -42,6 +42,7 @@ const SelectInput: React.FC<Props> = ({
   return (
     <View style={styles.inputContainer} {...viewProps}>
       {children}
+      <Gap.Horizontal value={16} />
       <Picker
         style={styles.input}
         Icon={(() =>

@@ -1,6 +1,7 @@
 import React, { useContext, useMemo } from "react"
 
-import { Icon, TextInput } from "@Components/atoms"
+import { Icon } from "@Components/atoms"
+import { TextInput } from "@Components/molecules"
 import { ThemeContext } from "@Theme"
 
 import CreateStyles from "./SearchField.styles"

@@ -1,4 +1,5 @@
 export { BillForm } from "./BillForm"
+export { BillsFilterInput } from "./BillsFilterInput"
 export { DeleteBillView } from "./DeleteBillView"
 export { HomePageView } from "./HomePageView"
 export { LanguageSelector } from "./LanguageSelector"

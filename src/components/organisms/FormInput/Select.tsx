@@ -4,7 +4,8 @@ import { Item, PickerSelectProps } from "react-native-picker-select"
 
 import { ThemeContext } from "@Theme"
 
-import { SelectInput, Text } from "@Components/atoms"
+import { Text } from "@Components/atoms"
+import { SelectInput } from "@Components/molecules"
 
 import CreateStyles from "./FormInput.styles"
 import { FormFieldProps } from "./FormField.props"

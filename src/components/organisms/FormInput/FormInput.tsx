@@ -3,7 +3,8 @@ import { TextInputProps, View } from "react-native"
 
 import { ThemeContext } from "@Theme"
 
-import { Text, TextInput } from "@Components/atoms"
+import { Gap, Text } from "@Components/atoms"
+import { TextInput } from "@Components/molecules"
 
 import CreateStyles from "./FormInput.styles"
 import { FormFieldProps } from "./FormField.props"
@@ -20,6 +21,7 @@ const Input: React.FC<FormInputProps> = ({
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
+      <Gap.Vertical value={4} />
       <TextInput
         style={styles.inputContainer}
         inputStyle={styles.input}

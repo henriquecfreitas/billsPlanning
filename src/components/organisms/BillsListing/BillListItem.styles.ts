@@ -12,7 +12,6 @@ export default (themeColors: ColorMap) => {
       flexDirection: "row",
       flexWrap: "wrap",
       alignItems: "center",
-      gap: 8,
       paddingVertical: 8,
       paddingHorizontal: 12,
       backgroundColor: themeColors.white,

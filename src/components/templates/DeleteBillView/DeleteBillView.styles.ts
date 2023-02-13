@@ -17,7 +17,6 @@ export default StyleSheet.create({
   textContent: {
     paddingVertical: 32,
     alignItems: "center",
-    gap: 4,
   },
   cascadeDeleteInfo: {
     fontSize: normalizeFontSize(8),

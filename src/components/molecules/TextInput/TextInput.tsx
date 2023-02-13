@@ -9,6 +9,8 @@ import {
   TextStyle
 } from "react-native"
 
+import { Gap } from "@Components/atoms"
+
 import CreateStyles from "./TextInput.styles"
 import { ThemeContext } from "@Theme"
 
@@ -37,6 +39,7 @@ const TextInput: React.FC<Props> = ({
   return (
     <View style={styles.inputContainer} {...viewProps}>
       {children}
+      <Gap.Horizontal value={16} />
       <NativeInput
         style={styles.input}
         placeholderTextColor={colors.text_light}

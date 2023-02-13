@@ -6,7 +6,6 @@ export default (themeColors: ColorMap) => StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     flexWrap: "nowrap",
-    gap: 4,
   },
   title: {
     color: themeColors.text,

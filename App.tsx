@@ -1,6 +1,7 @@
 import React, { PropsWithChildren, useContext, useMemo } from "react"
 import { StatusBar } from "expo-status-bar"
-import { StyleSheet, View } from "react-native"
+import { StyleSheet } from "react-native"
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
 
 import { AuthContext, AuthContextProvider } from "@Auth"
 import { BillContextProvider } from "@Bill"
@@ -31,13 +32,13 @@ function App() {
     },
   }), [colors])
 
-  return (
-    <View style={styles.container}>
+  return <SafeAreaProvider>
+    <SafeAreaView edges={["top"]} style={styles.container}>
       {React.createElement(hasSession ? MainPage : LoginPage)}
       <StatusBar style="auto" />
-      <ModalView />
-    </View>
-  )
+    </SafeAreaView>
+    <ModalView />
+  </SafeAreaProvider>
 }
 
 const appWithContextProviders = (...providers: React.FC<PropsWithChildren>[]) =>

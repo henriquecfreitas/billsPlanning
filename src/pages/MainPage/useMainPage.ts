@@ -1,11 +1,9 @@
 import React, { useContext, useMemo } from "react"
 
-import { BillContext } from "@Bill"
 import { ThemeContext } from "@Theme"
 
-import { BillsFilterInput } from "@Components/organisms"
 import { NavigationPage } from "@Components/organisms/NavigationController"
-import { HomePageView } from "@Components/templates"
+import { BillsFilterInput, HomePageView } from "@Components/templates"
 import { CreateBillAction } from "@Components/templates/BillForm"
 
 const useMainPage = () => {

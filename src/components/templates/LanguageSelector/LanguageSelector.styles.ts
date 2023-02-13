@@ -5,12 +5,11 @@ export default StyleSheet.create({
   contianer: {
     display: "flex",
     flexDirection: "row",
-    gap: 4,
     paddingHorizontal: 16,
   },
   button: {
-    width: "1.5rem",
-    height: "1.5rem",
+    width: normalizeFontSize(24),
+    height: normalizeFontSize(24),
   },
   flag: {
     fontSize: normalizeFontSize(18),

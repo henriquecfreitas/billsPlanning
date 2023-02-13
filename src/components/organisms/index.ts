@@ -1,4 +1,5 @@
-export { BillsFilterInput } from "./BillsFilterInput"
 export { BillsListing } from "./BillsListing"
+export { FormInput } from "./FormInput"
 export { ModalView } from "./ModalView"
 export { NavigationController } from "./NavigationController"
+export { SearchField } from "./SearchField"

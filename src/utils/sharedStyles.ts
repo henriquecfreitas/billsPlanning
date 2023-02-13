@@ -12,7 +12,6 @@ export default (themeColors: ColorMap) => StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
-    gap: 16,
     padding: 8,
     borderRadius: 8,
     color: themeColors.text_alternative,

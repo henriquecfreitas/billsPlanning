@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { BillContext } from "@Bill"
 import { LocaleContext } from "@Locale"
 
-import { SearchField } from "@Components/molecules"
+import { SearchField } from "@Components/organisms"
 
 const BOUNCE_DELAY = 500 // 500ms
 

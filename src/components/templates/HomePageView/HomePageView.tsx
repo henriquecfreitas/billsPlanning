@@ -5,7 +5,7 @@ import { BillContext } from "@Bill"
 import { ThemeContext } from "@Theme"
 import { LocaleContext } from "@Locale"
 
-import { Text } from "@Components/atoms"
+import { Gap, Text } from "@Components/atoms"
 import { BillsListing } from "@Components/organisms"
 import { usePushBillFormPage } from "@Components/templates/BillForm"
 
@@ -29,6 +29,7 @@ const HomePageView: React.FC = () => {
         <Text style={styles.listTitle}>{home__listing_title}</Text>
         <Text style={styles.listInfo}>{`27 ${entries}`}</Text>
       </View>
+      <Gap.Vertical value={16} />
       <BillsListing
         bills={billsListing}
         onSelectBill={pushBillFormPage}

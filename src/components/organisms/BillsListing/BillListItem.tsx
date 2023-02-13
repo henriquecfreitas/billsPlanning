@@ -4,7 +4,7 @@ import { TouchableOpacity } from "react-native"
 import { Bill, BillKind } from "@Bill"
 import { ThemeContext } from "@Theme"
 
-import { Icon, Text } from "@Components/atoms"
+import { Gap, Icon, Text } from "@Components/atoms"
 import { ModalViewContext } from "@Components/organisms/ModalView"
 import { DeleteBillView } from "@Components/templates"
 
@@ -53,7 +53,9 @@ const BillListItem: React.FC<Props> = ({
       }}
     >
       <Icon name={iconName} size={16} color={iconColor} />
+      <Gap.Horizontal value={8} />
       <Text style={[kindStyle, styles.descriptionLabel]}>{`${code} - ${name}`}</Text>
+      <Gap.Horizontal value={8} />
       <TouchableOpacity onPress={() => openView(<DeleteBillView bill={bill} />)}>
         <Icon
           name="delete"

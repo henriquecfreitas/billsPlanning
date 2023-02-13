@@ -3,7 +3,7 @@ import { TouchableOpacity, View } from "react-native"
 
 import { ThemeContext } from "@Theme"
 
-import { Icon, Text } from "@Components/atoms"
+import { Gap, Icon, Text } from "@Components/atoms"
 
 import { NavigationContextProvider } from "./context/NavigationContextProvider"
 
@@ -31,12 +31,14 @@ const NavigationController: React.FC<PropsWithChildren> = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerTitleContainer}>
-          {currentPageLevel > 0 && (
+          {currentPageLevel > 0 && <>
             <TouchableOpacity onPress={popPage}>
               <Icon name="left" size={28} color={colors.bg_text_accent} />
             </TouchableOpacity>
-          )}
+            <Gap.Horizontal value={12} />
+          </>}
           <Text style={styles.headerTitle}>{title}</Text>
+          <Gap.Horizontal value={12} />
           {headerAction}
         </View>
         {headerContent && <View style={styles.headerContentContainer}>

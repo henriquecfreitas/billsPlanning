@@ -3,13 +3,8 @@ import { Text, TouchableOpacity, View, ViewProps } from "react-native"
 
 import { ThemeContext } from "@Theme"
 
+import { ButtonVariant } from "./ButtonVariant"
 import CreateStyles from "./Button.styles"
-
-export enum ButtonVariant {
-  Default,
-  Primary,
-  Danger,
-}
 
 export type ButtonProps = {
   label: string,

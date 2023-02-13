@@ -8,7 +8,6 @@ export default (colorMap: ColorMap) => StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     flexWrap: "nowrap",
-    gap: 16,
   },
   listTitleContainer: {
     display: "flex",

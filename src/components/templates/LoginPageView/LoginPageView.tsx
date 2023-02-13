@@ -1,5 +1,8 @@
 import React, { useContext } from "react"
-import { Button, TextInput, View } from "react-native"
+import { View } from "react-native"
+
+import { Button, Gap } from "@Components/atoms"
+import { TextInput } from "@Components/molecules"
 
 import { AuthContext } from "@Auth"
 import { LocaleContext } from "@Locale"
@@ -16,8 +19,10 @@ const LoginPageView: React.FC = () => {
   return (
     <View>
       <TextInput placeholder={email}/>
+      <Gap.Vertical value={12} />
       <TextInput placeholder={password}/>
-      <Button title={login} onPress={() => setSession()} />
+      <Gap.Vertical value={12} />
+      <Button.OverBG label={login} onPress={() => setSession()} />
     </View>
   )
 }
