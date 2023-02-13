@@ -21,6 +21,11 @@ const BillForm: React.FC<Props> = ({
     code,
     kind,
     active,
+    setParent,
+    setName,
+    setCode,
+    setKind,
+    setActive,
     strings,
     parentBillOptions,
     billKindOptions,
@@ -31,29 +36,31 @@ const BillForm: React.FC<Props> = ({
     <FormInput.Select
       title={strings.bill_form__parent}
       items={parentBillOptions}
-      onValueChange={()=>{}}
+      onValueChange={(_, __, parent) => { setParent(parent) }}
     />
     <FormInput
       title={strings.bill_form__code}
       placeholder="1.1"
       value={code}
+      onChangeText={setCode}
     />
     <FormInput
       title={strings.bill_form__name}
       placeholder={strings.bill_form__contingency_fund}
       value={name}
+      onChangeText={setName}
     />
     <FormInput.Select
       title={strings.bill_form__kind}
       items={billKindOptions}
       value={kind}
-      onValueChange={()=>{}}
+      onValueChange={(_, __, kind) => { setKind(kind) }}
     />
     <FormInput.Select
       title={strings.bill_form__active}
       items={activeStatusOptions}
       value={active}
-      onValueChange={()=>{}}
+      onValueChange={setActive}
     />
   </View>
 }

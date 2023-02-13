@@ -9,21 +9,23 @@ import { SelectInput, Text } from "@Components/atoms"
 import CreateStyles from "./FormInput.styles"
 import { FormFieldProps } from "./FormField.props"
 
-type SelectItem<I, V> = Item & {
+export type SelectItem<I, V> = Item & {
   origin: I,
   value: V,
 }
 
 type Props<I, V> =
-  PickerSelectProps &
+  Omit<PickerSelectProps, "onValueChange"> &
   Omit<FormFieldProps, "placeholder"> &
   {
     items: SelectItem<I, V>[],
+    onValueChange: (value: V, index: number, origin: I) => void,
   }
 
 const Select: <I, V>(props: Props<I, V>) => React.ReactElement = ({
   title,
   items,
+  onValueChange,
   ...props
 }) => {
   const { colors } = useContext(ThemeContext)
@@ -40,6 +42,10 @@ const Select: <I, V>(props: Props<I, V>) => React.ReactElement = ({
         }}
         placeholder={{}}
         items={items}
+        onValueChange={(value, i) => {
+          const { origin } = items[i]
+          onValueChange(value, i, origin)
+        }}
         {...props}
       />
     </View>

@@ -6,17 +6,19 @@ import { ThemeContext } from "@Theme"
 import { Icon } from "@Components/atoms"
 
 type Props = {
+  icon: string,
   onPress: () => void,
 }
-const AddAction: React.FC<Props> = ({
+const IconAction: React.FC<Props> = ({
+  icon,
   onPress,
 }) => {
   const { colors } = useContext(ThemeContext)
   return (
     <TouchableOpacity onPress={onPress}>
-      <Icon name="plus" size={24} color={colors.bg_text_accent} />
+      <Icon name={icon} size={24} color={colors.bg_text_accent} />
     </TouchableOpacity>
   )
 }
 
-export default AddAction
+export default IconAction

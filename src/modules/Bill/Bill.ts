@@ -1,4 +1,12 @@
-export class Bill {
+export type BillFormData = {
+  name: string,
+  code: string,
+  kind: BillKind,
+  active: boolean,
+  parent?: Bill,
+}
+
+export type Bill = {
   id: string
   code: string
   name: string
